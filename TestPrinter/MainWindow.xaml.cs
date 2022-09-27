@@ -20,9 +20,19 @@ namespace TestPrinter
     /// </summary>
     public partial class MainWindow : Window
     {
+        string csvFilePath;
+        string roxFilePath;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void bCSVAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
+            ofd.Filter = "CSV Files (*.csv)|*.csv";
+            ofd.ShowDialog();
+            csvFilePath = ofd.FileName;
         }
     }
 }

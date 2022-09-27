@@ -17,7 +17,7 @@
         <Button x:Name="bStartPrint" Content="Начать печать" HorizontalAlignment="Left" Margin="229,88,0,0" VerticalAlignment="Top"/>
         <Button x:Name="bStopPrint" Content="Остановить печать" HorizontalAlignment="Left" Margin="229,128,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lStatus" Content="Статус" HorizontalAlignment="Center" Margin="0,173,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Normal" Height="211" Width="780"/>
-        <Button x:Name="bMerge" Content="Ебитес" HorizontalAlignment="Left" Margin="34,128,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="bMerge" Content="Ебитес" HorizontalAlignment="Left" Margin="34,128,0,0" VerticalAlignment="Top" Click="bMerge_Click"/>
 
     </Grid>
 </Window>

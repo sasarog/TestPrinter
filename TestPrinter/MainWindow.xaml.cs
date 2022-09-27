@@ -2,6 +2,9 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,7 +30,18 @@ namespace TestPrinter
         {
             InitializeComponent();
         }
-
+        private void sendToPrinter(string message)
+        {
+            //TcpClient tcpClient = new TcpClient(new IPEndPoint(IPAddress.Parse(tbIP.Text), Convert.ToInt32(tbPort.Text)));
+            //NetworkStream networkStream = tcpClient.GetStream();
+            //networkStream.Write(Encoding.UTF8.GetBytes(message), 0, message.Length);
+            //networkStream.Close();
+            //tcpClient.Close();
+            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp); ;
+            socket.Connect(new IPEndPoint(IPAddress.Parse(tbIP.Text), Convert.ToInt32(tbPort.Text)));
+            socket.Send(Encoding.UTF8.GetBytes(message));
+            socket.Close();
+        }
         private void bCSVAdd_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
@@ -42,6 +56,11 @@ namespace TestPrinter
             ofd.Filter = "ROX Files (*.rox)|*.rox";
             ofd.ShowDialog();
             roxFileData = File.ReadAllText(ofd.FileName);
+        }
+
+        private void bMerge_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

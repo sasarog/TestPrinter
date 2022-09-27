@@ -34,5 +34,13 @@ namespace TestPrinter
             ofd.ShowDialog();
             csvFilePath = ofd.FileName;
         }
+
+        private void bROXConnect_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
+            ofd.Filter = "ROX Files (*.rox)|*.rox";
+            ofd.ShowDialog();
+            roxFilePath = ofd.FileName;
+        }
     }
 }

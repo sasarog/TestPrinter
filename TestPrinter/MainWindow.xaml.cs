@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,8 @@ namespace TestPrinter
     /// </summary>
     public partial class MainWindow : Window
     {
-        string csvFilePath;
-        string roxFilePath;
+        string csvFileData;
+        string roxFileData;
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace TestPrinter
             Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
             ofd.Filter = "CSV Files (*.csv)|*.csv";
             ofd.ShowDialog();
-            csvFilePath = ofd.FileName;
+            csvFileData = File.ReadAllText(ofd.FileName);
         }
 
         private void bROXConnect_Click(object sender, RoutedEventArgs e)
@@ -40,7 +41,7 @@ namespace TestPrinter
             Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
             ofd.Filter = "ROX Files (*.rox)|*.rox";
             ofd.ShowDialog();
-            roxFilePath = ofd.FileName;
+            roxFileData = File.ReadAllText(ofd.FileName);
         }
     }
 }

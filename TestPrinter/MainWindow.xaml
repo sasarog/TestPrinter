@@ -14,10 +14,12 @@
         <Button x:Name="bROXConnect" Content="Подключить макет" HorizontalAlignment="Left" Margin="34,48,0,0" VerticalAlignment="Top" Click="bROXConnect_Click"/>
         <Button x:Name="bCSVAdd" Content="Подключить CSV" HorizontalAlignment="Left" Margin="34,88,0,0" VerticalAlignment="Top" Click="bCSVAdd_Click"/>
         <Button x:Name="bSend" Content="Отправить данные" HorizontalAlignment="Left" Margin="229,48,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="bStartPrint" Content="Начать печать" HorizontalAlignment="Left" Margin="229,88,0,0" VerticalAlignment="Top" Click="bStartPrint_Click"/>
+        <Button x:Name="bStartPrint" HorizontalAlignment="Left" Margin="229,88,0,0" VerticalAlignment="Top" Click="bStartPrint_Click"/>
         <Button x:Name="bStopPrint" Content="Остановить печать" HorizontalAlignment="Left" Margin="229,128,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lStatus" Content="Статус" HorizontalAlignment="Center" Margin="0,173,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Normal" Height="211" Width="780"/>
         <Button x:Name="bMerge" Content="Ебитес" HorizontalAlignment="Left" Margin="34,128,0,0" VerticalAlignment="Top" Click="bMerge_Click"/>
+        <Button x:Name="bSendCSV" Content="Отправить CSV" Margin="430,21,282,393" Click="bSendCSV_Click"/>
+        <TextBox x:Name="csvFileName" HorizontalAlignment="Left" Margin="534,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

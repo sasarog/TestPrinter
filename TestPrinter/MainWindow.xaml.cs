@@ -73,5 +73,11 @@ namespace TestPrinter
         {
             sendToPrinter("~SPPSAP^");
         }
+
+        private void bSendCSV_Click(object sender, RoutedEventArgs e)
+        {
+            bCSVAdd_Click(sender, e);
+            sendToPrinter("~SPLCFD{"+ csvFileName.Text + ".csv~gt~" + csvFileData + "^")
+        }
     }
 }

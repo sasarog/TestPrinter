@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="tbIP" HorizontalAlignment="Left" Margin="376,94,0,0" TextWrapping="Wrap" Text="192.168.100.100" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lIP" Content="IP" HorizontalAlignment="Left" Margin="376,63,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPort" HorizontalAlignment="Left" Margin="526,94,0,0" TextWrapping="Wrap" Text="9100" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lPort" Content="Port" HorizontalAlignment="Left" Margin="526,63,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="bROXConnect" Content="Подключить макет" HorizontalAlignment="Left" Margin="34,48,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="bCSVAdd" Content="Подключить CSV" HorizontalAlignment="Left" Margin="34,88,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="bSend" Content="Отправить данные" HorizontalAlignment="Left" Margin="229,48,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="bStartPrint" Content="Начать печать" HorizontalAlignment="Left" Margin="229,88,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="bStopPrint" Content="Остановить печать" HorizontalAlignment="Left" Margin="229,128,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lStatus" Content="Статус" HorizontalAlignment="Center" Margin="0,173,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Normal" Height="211" Width="780"/>
+
     </Grid>
 </Window>

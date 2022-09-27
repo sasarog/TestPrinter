@@ -43,7 +43,8 @@ namespace TestPrinter
                 socket.Connect(new IPEndPoint(IPAddress.Parse(tbIP.Text), Convert.ToInt32(tbPort.Text)));
                 socket.Send(Encoding.UTF8.GetBytes(message));
                 socket.Close();
-            }catch (SocketException soxkex)
+            }
+            catch (SocketException soxkex)
             {
                 MessageBox.Show("Ошибка отправки команды " + soxkex.Message);
             }
@@ -56,7 +57,7 @@ namespace TestPrinter
             csvFileData = File.ReadAllText(ofd.FileName);
         }
 
-        private void bROXConnect_Click(object sender, RoutedEventArgs e)
+        private void bROXAdd_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
             ofd.Filter = "ROX Files (*.rox)|*.rox";
@@ -76,8 +77,16 @@ namespace TestPrinter
 
         private void bSendCSV_Click(object sender, RoutedEventArgs e)
         {
-            bCSVAdd_Click(sender, e);
-            sendToPrinter("~SPLCFD{"+ csvFileName.Text + ".csv~gt~" + csvFileData + "^")
+            if (csvFileData == null)
+                bCSVAdd_Click(sender, e);
+            sendToPrinter("~SPLCFD{" + csvFileName.Text + ".csv~gt~" + csvFileData + "^");
+        }
+
+        private void bSendTemplate_Click(object sender, RoutedEventArgs e)
+        {
+            if (roxFileData == null)
+                bROXAdd_Click(sender, e);
+            sendToPrinter("~SPLTDS{" + roxFileData + "^");
         }
     }
 }

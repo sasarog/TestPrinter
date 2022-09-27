@@ -37,10 +37,16 @@ namespace TestPrinter
             //networkStream.Write(Encoding.UTF8.GetBytes(message), 0, message.Length);
             //networkStream.Close();
             //tcpClient.Close();
-            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp); ;
-            socket.Connect(new IPEndPoint(IPAddress.Parse(tbIP.Text), Convert.ToInt32(tbPort.Text)));
-            socket.Send(Encoding.UTF8.GetBytes(message));
-            socket.Close();
+            try
+            {
+                Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp); ;
+                socket.Connect(new IPEndPoint(IPAddress.Parse(tbIP.Text), Convert.ToInt32(tbPort.Text)));
+                socket.Send(Encoding.UTF8.GetBytes(message));
+                socket.Close();
+            }catch (SocketException soxkex)
+            {
+                MessageBox.Show("Ошибка отправки команды " + soxkex.Message);
+            }
         }
         private void bCSVAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -61,6 +67,11 @@ namespace TestPrinter
         private void bMerge_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void bStartPrint_Click(object sender, RoutedEventArgs e)
+        {
+            sendToPrinter("~SPPSAP^");
         }
     }
 }

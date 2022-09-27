@@ -79,14 +79,24 @@ namespace TestPrinter
         {
             if (csvFileData == null)
                 bCSVAdd_Click(sender, e);
-            sendToPrinter("~SPLCFD{" + csvFileName.Text + ".csv~gt~" + csvFileData + "^");
+            sendToPrinter("~SPLCFD{" + csvFileName.Text + ".csv~gt~" + csvFileData + "}^");
         }
 
         private void bSendTemplate_Click(object sender, RoutedEventArgs e)
         {
             if (roxFileData == null)
                 bROXAdd_Click(sender, e);
-            sendToPrinter("~SPLTDS{" + roxFileData + "^");
+            sendToPrinter("~SPLTDS{" + roxFileData + "}^");
+        }
+
+        private void bDeleteROX_Click(object sender, RoutedEventArgs e)
+        {
+            sendToPrinter("~SPLDTF{" + tbDeleteROX.Text + "}^");
+        }
+
+        private void bDeleteCSV_Click(object sender, RoutedEventArgs e)
+        {
+            sendToPrinter("~SPLDDF{" + csvFileName + "}^");
         }
     }
 }

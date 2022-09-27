@@ -7,19 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="tbIP" HorizontalAlignment="Left" Margin="376,94,0,0" TextWrapping="Wrap" Text="192.168.100.100" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="lIP" Content="IP" HorizontalAlignment="Left" Margin="376,63,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbIP" HorizontalAlignment="Left" Margin="526,150,0,0" TextWrapping="Wrap" Text="192.168.100.100" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lIP" Content="IP" HorizontalAlignment="Left" Margin="522,119,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbPort" HorizontalAlignment="Left" Margin="526,94,0,0" TextWrapping="Wrap" Text="9100" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lPort" Content="Port" HorizontalAlignment="Left" Margin="526,63,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="bROXAdd" Content="Подключить макет" HorizontalAlignment="Left" Margin="34,48,0,0" VerticalAlignment="Top" Click="bROXAdd_Click"/>
-        <Button x:Name="bCSVAdd" Content="Подключить CSV" HorizontalAlignment="Left" Margin="34,88,0,0" VerticalAlignment="Top" Click="bCSVAdd_Click"/>
-        <Button x:Name="bSendTemplate" Content="Отправить макет" HorizontalAlignment="Left" Margin="229,48,0,0" VerticalAlignment="Top" Click="bSendTemplate_Click"/>
-        <Button x:Name="bStartPrint" HorizontalAlignment="Left" Margin="229,88,0,0" VerticalAlignment="Top" Click="bStartPrint_Click" Content="Начать печать"/>
-        <Button x:Name="bStopPrint" Content="Остановить печать" HorizontalAlignment="Left" Margin="229,128,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="bROXAdd" Content="Подключить макет" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Click="bROXAdd_Click"/>
+        <Button x:Name="bCSVAdd" Content="Подключить CSV" HorizontalAlignment="Left" Margin="303,15,0,0" VerticalAlignment="Top" Click="bCSVAdd_Click"/>
+        <Button x:Name="bSendTemplate" Content="Отправить макет" HorizontalAlignment="Left" Margin="20,41,0,0" VerticalAlignment="Top" Click="bSendTemplate_Click"/>
+        <Button x:Name="bStartPrint" HorizontalAlignment="Left" Margin="162,11,0,0" VerticalAlignment="Top" Click="bStartPrint_Click" Content="Начать печать"/>
+        <Button x:Name="bStopPrint" Content="Остановить печать" HorizontalAlignment="Left" Margin="162,46,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lStatus" Content="Статус" HorizontalAlignment="Center" Margin="0,173,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Normal" Height="211" Width="780"/>
-        <Button x:Name="bMerge" Content="Ебитес" HorizontalAlignment="Left" Margin="34,128,0,0" VerticalAlignment="Top" Click="bMerge_Click"/>
-        <Button x:Name="bSendCSV" Content="Отправить CSV" Margin="430,21,282,393" Click="bSendCSV_Click"/>
-        <TextBox x:Name="csvFileName" HorizontalAlignment="Left" Margin="534,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="bSendCSV" Content="Отправить CSV" Margin="303,56,409,358" Click="bSendCSV_Click"/>
+        <TextBox x:Name="csvFileName" HorizontalAlignment="Left" Margin="303,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="bDeleteROX" Content="Удалить макет" HorizontalAlignment="Left" Margin="20,74,0,0" VerticalAlignment="Top" Click="bDeleteROX_Click"/>
+        <TextBox x:Name="tbDeleteROX" HorizontalAlignment="Left" Margin="20,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AutomationProperties.IsOffscreenBehavior="Default" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="bDeleteCSV" Content="Удалить CSV" HorizontalAlignment="Left" Margin="303,94,0,0" VerticalAlignment="Top" Click="bDeleteCSV_Click"/>
 
     </Grid>
 </Window>

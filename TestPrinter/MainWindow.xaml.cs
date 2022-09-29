@@ -53,22 +53,19 @@ namespace TestPrinter
         {
             Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
             ofd.Filter = "CSV Files (*.csv)|*.csv";
-            ofd.ShowDialog();
-            csvFileData = File.ReadAllText(ofd.FileName);
+            if (ofd.ShowDialog() == true)
+                csvFileData = File.ReadAllText(ofd.FileName);
         }
 
         private void bROXAdd_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
             ofd.Filter = "ROX Files (*.rox)|*.rox";
-            ofd.ShowDialog();
-            roxFileData = File.ReadAllText(ofd.FileName);
+            if (ofd.ShowDialog() == true)
+                roxFileData = File.ReadAllText(ofd.FileName);
         }
 
-        private void bMerge_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+  
 
         private void bStartPrint_Click(object sender, RoutedEventArgs e)
         {
@@ -78,25 +75,45 @@ namespace TestPrinter
         private void bSendCSV_Click(object sender, RoutedEventArgs e)
         {
             if (csvFileData == null)
-                bCSVAdd_Click(sender, e);
+            {
+                MessageBox.Show("Не выбран CSV файл. ");
+                return;
+            }
             sendToPrinter("~SPLCFD{" + csvFileName.Text + ".csv~gt~" + csvFileData + "}^");
         }
 
         private void bSendTemplate_Click(object sender, RoutedEventArgs e)
         {
             if (roxFileData == null)
-                bROXAdd_Click(sender, e);
+            {
+                MessageBox.Show("Не выбран ROX файл шаблона. ");
+                return;
+            }
             sendToPrinter("~SPLTDS{" + roxFileData + "}^");
         }
 
         private void bDeleteROX_Click(object sender, RoutedEventArgs e)
         {
-            sendToPrinter("~SPLDTF{" + tbDeleteROX.Text + "}^");
+            if (
+                MessageBox.Show("Вы точно хотите удалить файл " + tbDeleteROX.Text + "? ", "Удаление файла", MessageBoxButton.YesNo)
+                ==
+                MessageBoxResult.OK
+                )
+            {
+                sendToPrinter("~SPLDTF{" + tbDeleteROX.Text + "}^");
+            }
         }
 
         private void bDeleteCSV_Click(object sender, RoutedEventArgs e)
         {
-            sendToPrinter("~SPLDDF{" + csvFileName + "}^");
+            if (
+                MessageBox.Show("Вы точно хотите удалить файл " + csvFileName + "? ", "Удаление файла", MessageBoxButton.YesNo)
+                ==
+                MessageBoxResult.OK
+                )
+            {
+                sendToPrinter("~SPLDDF{" + csvFileName + "}^");
+            }
         }
     }
 }
